@@ -1,3 +1,6 @@
+import java.util.Iterator;
+import java.util.Set;
+import java.util.Vector;
 
 public class TestaCursoComAluno {
 
@@ -18,9 +21,19 @@ public class TestaCursoComAluno {
 		javaColecoes.matricula(a3);
 
 		System.out.println("Todos os alunos matriculados: ");
-		javaColecoes.getAlunos().forEach(a -> {
-			System.out.println(a.getNome());
-		});
+		
+		Set<Aluno> alunos = javaColecoes.getAlunos();
+		Iterator<Aluno> iterador = alunos.iterator();
+		while(iterador.hasNext()) {
+			Aluno proximo = iterador.next();
+			System.out.println(proximo);
+		}
+		
+//		Vector<Aluno> vetor = new Vector<>();
+		
+//		javaColecoes.getAlunos().forEach(a -> {
+//			System.out.println(a.getNome());
+//		});
 
 		System.out.println("O aluno " + a1 + " está matriculado?");
 		System.out.println(javaColecoes.estaMatriculado(a1));
